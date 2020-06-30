@@ -1,4 +1,4 @@
-from .. import Weapon
+from ... import Weapon
 
 
 class Pistol(Weapon):
