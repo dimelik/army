@@ -1,29 +1,64 @@
-from Weapon.Weapon import *
+import sys
+sys.path.append('Weapon/ColdWeapon/')
+sys.path.append('Weapon/GunshotWeapon/')
+from Knife import Knife
+from SapperBlade import SapperBlade
+from Automatic import Automatic
+from Pistol import Pistol
 
 
 class Soldier(object):
-    _weapons = []
-    _weaponPrice = 0
+    __knife = None
+    __sapperBlade = None
+    __automatic = None
+    __pistol = None
+    __weaponPrice = 0
 
     @property
-    def weapons(self):
-        return self._weapons
+    def knife(self):
+        return self.__knife
 
-    @weapons.setter
-    def weapons(self, weapon):
-        if not isinstance(weapon, Weapon):
+    @knife.setter
+    def knife(self, value):
+        if not isinstance(value, Knife):
             raise Exception("Not Knife in setter")
-        self._weapons.append(weapon)
-        self._weaponPrice += weapon.price
+        self.__knife = value
+        self.__weaponPrice += value.price
+
+    @property
+    def sapperBlade(self):
+        return self.__sapperBlade
+
+    @sapperBlade.setter
+    def sapperBlade(self, value):
+        if not isinstance(value, SapperBlade):
+            raise Exception("Not sapperBlade in setter")
+        self.__sapperBlade = value
+        self.__weaponPrice += value.price
+
+    @property
+    def automatic(self):
+        return self.__automatic
+
+    @automatic.setter
+    def automatic(self, value):
+        if not isinstance(value, Automatic):
+            raise Exception("Not automatic in setter")
+        self.__automatic = value
+        self.__weaponPrice += value.price
+
+    @property
+    def pistol(self):
+        return self.__pistol
+
+    @pistol.setter
+    def pistol(self, value):
+        if not isinstance(value, Pistol):
+            raise Exception("Not automatic in setter")
+        self.__pistol = value
+        self.__weaponPrice += value.price
 
     @property
     def weaponPrice(self):
-        return self._weaponPrice
-
-
-x = Weapon(100000000000, "as")
-sold = Soldier()
-sold.weapons = x
-sold.weapons = x
-print(sold.weaponPrice)
+        return self.__weaponPrice
 

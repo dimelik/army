@@ -1,10 +1,13 @@
 class Army(object):
-    _soldiers = []
-    _weaponPrice = None
+    __soldiers = []
+    __weaponPrice = 0
 
-    def __init__(self, *args):
-        if not issubclass(args, Soldier):
-            raise Exception("TypeError")
-        self._soldiers.append(args)
+    def __init__(self, *soldier):
+        for sold in soldier:
+            self.__soldiers.append(sold)
 
-
+    @property
+    def armyWeaponPrice(self):
+        for soldier in self.__soldiers:
+            self.__weaponPrice += soldier.weaponPrice
+        return self.__weaponPrice

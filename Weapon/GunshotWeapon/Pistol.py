@@ -1,13 +1,13 @@
-from ... import Weapon
+from GunshotWeapon import GunshotWeapon
 
 
-class Pistol(Weapon):
-    _armorPiercing = None
+class Pistol(GunshotWeapon):
+    __armorPiercing = None
 
     @property
     def armorPiercing(self):
-        return self._rateFire
+        return self.__rateFire
 
     @armorPiercing.setter
     def armorPiercing(self, value):
-        self._armorPiercing = float(value)
+        self.__armorPiercing = value

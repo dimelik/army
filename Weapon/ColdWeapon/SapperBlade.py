@@ -1,13 +1,13 @@
-from . import ColdWeapon
+from ColdWeapon import ColdWeapon
 
 
-class SaapperBlade(ColdWeapon):
-    _handleLength = None
+class SapperBlade(ColdWeapon):
+    __handleLength = None
 
     @property
     def handleLength(self):
-        return self._handleLength
+        return self.__handleLength
 
     @handleLength.setter
     def handleLength(self, value):
-        self._handleLength = value
+        self.__handleLength = value

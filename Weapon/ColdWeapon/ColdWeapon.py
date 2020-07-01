@@ -4,21 +4,21 @@ from Weapon import *
 
 
 class ColdWeapon(Weapon):
-    _bladeLength = None
-    _material = None
+    __bladeLength = None
+    __material = None
 
     @property
     def bladeLength(self):
-        return self._bladeLength
+        return self.__bladeLength
 
     @bladeLength.setter
     def bladeLength(self, value):
-        self._bladeLength = float(value)
+        self.__bladeLength = value
 
     @property
     def material(self):
-        return self._material
+        return self.__material
 
     @material.setter
     def material(self, value):
-        self._material = str(value)
+        self.__material = value

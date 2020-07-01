@@ -1,13 +1,16 @@
-from . import GunshotWeapon
+from GunshotWeapon import GunshotWeapon
 
 
 class Automatic(GunshotWeapon):
-    _rateFire = None
+    __rateFire = None
 
     @property
     def rateFire(self):
-        return self._rateFire
+        return self.__rateFire
 
     @rateFire.setter
     def rateFire(self, value):
-        self._rateFire = float(value)
+        self.__rateFire = value
+
+
+

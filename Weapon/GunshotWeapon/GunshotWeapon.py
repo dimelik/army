@@ -1,22 +1,24 @@
-from ... import Weapon
+import sys
+sys.path.append('../')
+from Weapon import *
 
 
 class GunshotWeapon(Weapon):
-    _caliber = None
-    _range = None
+    __caliber = None
+    __range = None
 
     @property
     def caliber(self):
-        return self._caliber
+        return self.__caliber
 
     @caliber.setter
     def caliber(self, value):
-        self._caliber = value
+        self.__caliber = value
 
     @property
     def range(self):
-        return self._range
+        return self.__range
 
     @range.setter
     def range(self, value):
-        self._range = value
+        self.__range = value

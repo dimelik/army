@@ -1,5 +1,5 @@
 class Weapon(object):
-    def __init__(self, price=100, name='asd'):
+    def __init__(self, price, name):
         self.__name = name
         self.__price = price
 
