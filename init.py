@@ -19,10 +19,14 @@ pistol = Pistol(2, 'Colt')
 pistol.armorPiercing = 30
 pistol.caliber = 9
 pistol.range = 200
-knife = Knife(2, 'Knife')
-knife.armorPiercing = 90
-knife.bladeLength = 15
+knife = Knife(4, 'Vader')
+knife.armorPiercing = 80
+knife.bladeLength = 20
 knife.material = 'steel'
+knife2 = Knife(2, 'Knife')
+knife2.armorPiercing = 90
+knife2.bladeLength = 15
+knife2.material = 'steel'
 sapper = SapperBlade(2, 'Sapp')
 sapper.handleLength = 20
 sapper.bladeLength = 15
@@ -33,5 +37,8 @@ soldier.pistol = pistol
 soldier.knife = knife
 soldier.sapperBlade = sapper
 soldier.automatic = automatic
-army = Army(soldier, soldier, soldier, soldier, soldier, soldier, soldier)
+army = Army(soldier, soldier, soldier)
+print(army.armyWeaponPrice)
+soldier.knife = knife2
+print(army.armyWeaponPrice)
 print(army.armyWeaponPrice)
