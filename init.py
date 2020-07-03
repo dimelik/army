@@ -1,5 +1,4 @@
 import sys
-
 sys.path.append('Weapon/')
 sys.path.append('Weapon/ColdWeapon/')
 sys.path.append('Weapon/GunshotWeapon/')
@@ -42,6 +41,7 @@ pistol.armor_piercing = 30
 pistol.caliber = 9
 pistol.range = 200
 knife = Knife(4, 'Vader')
+knife.price = 10
 knife.armor_piercing = 80
 knife.blade_length = 20
 knife.material = 'steel'

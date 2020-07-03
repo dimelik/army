@@ -1,6 +1,4 @@
-import sys
-sys.path.append('../')
-from Weapon import *
+from Weapon import Weapon
 
 
 class GunshotWeapon(Weapon):

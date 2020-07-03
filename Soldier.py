@@ -1,7 +1,3 @@
-import sys
-
-sys.path.append('Weapon/ColdWeapon/')
-sys.path.append('Weapon/GunshotWeapon/')
 from Knife import Knife
 from SapperBlade import SapperBlade
 from Automatic import Automatic
