@@ -1,19 +1,21 @@
-class Army(object):
-    __soldiers = []
-    __weaponPrice = 0
+from Soldier import Soldier
 
-    def __init__(self, *soldier):
+
+class Army:
+    __soldiers = []
+
+    def __init__(self, *soldier: Soldier):
         for sold in soldier:
-            self.__soldiers.append(sold)
+            if sold not in self.__soldiers:
+                self.__soldiers.append(sold)
 
     @property
     def soldiers(self):
         return self.__soldiers
 
     @property
-    def armyWeaponPrice(self):
-        if self.__weaponPrice != 0:
-            self.__weaponPrice = 0
+    def army_weapon_price(self):
+        result = 0
         for soldier in self.__soldiers:
-            self.__weaponPrice += soldier.weaponPrice
-        return self.__weaponPrice
+            result += soldier.weapon_price
+        return result

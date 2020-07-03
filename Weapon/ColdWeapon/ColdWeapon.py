@@ -8,11 +8,11 @@ class ColdWeapon(Weapon):
     __material = None
 
     @property
-    def bladeLength(self):
+    def blade_length(self):
         return self.__bladeLength
 
-    @bladeLength.setter
-    def bladeLength(self, value):
+    @blade_length.setter
+    def blade_length(self, value: float):
         self.__bladeLength = value
 
     @property
@@ -20,5 +20,5 @@ class ColdWeapon(Weapon):
         return self.__material
 
     @material.setter
-    def material(self, value):
+    def material(self, value: str):
         self.__material = value

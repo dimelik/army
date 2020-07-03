@@ -12,7 +12,7 @@ class GunshotWeapon(Weapon):
         return self.__caliber
 
     @caliber.setter
-    def caliber(self, value):
+    def caliber(self, value: float):
         self.__caliber = value
 
     @property
@@ -20,5 +20,5 @@ class GunshotWeapon(Weapon):
         return self.__range
 
     @range.setter
-    def range(self, value):
+    def range(self, value: int):
         self.__range = value

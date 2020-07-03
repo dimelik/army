@@ -5,11 +5,11 @@ class Automatic(GunshotWeapon):
     __rateFire = None
 
     @property
-    def rateFire(self):
+    def rate_fire(self):
         return self.__rateFire
 
-    @rateFire.setter
-    def rateFire(self, value):
+    @rate_fire.setter
+    def rate_fire(self, value: int):
         self.__rateFire = value
 
 

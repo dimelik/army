@@ -1,5 +1,5 @@
-class Weapon(object):
-    def __init__(self, price, name):
+class Weapon:
+    def __init__(self, price: float, name: str):
         self.__name = name
         self.__price = price
 

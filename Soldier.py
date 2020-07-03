@@ -1,4 +1,5 @@
 import sys
+
 sys.path.append('Weapon/ColdWeapon/')
 sys.path.append('Weapon/GunshotWeapon/')
 from Knife import Knife
@@ -7,31 +8,34 @@ from Automatic import Automatic
 from Pistol import Pistol
 
 
-class Soldier(object):
-    __knife = Knife(0, '')
-    __sapperBlade = SapperBlade(0, '')
-    __automatic = Automatic(0, '')
-    __pistol = Pistol(0, '')
-    __weaponPrice = 0
+class Soldier:
+    __knife = None
+    __sapperBlade = None
+    __automatic = None
+    __pistol = None
+    __weaponPrice = None
+
+    def __init__(self, name):
+        self.__name = name
+
+    @property
+    def name(self):
+        return self.__name
 
     @property
     def knife(self):
         return self.__knife
 
     @knife.setter
-    def knife(self, value):
-        if not isinstance(value, Knife):
-            raise Exception("Not Knife in setter")
+    def knife(self, value: Knife):
         self.__knife = value
 
     @property
-    def sapperBlade(self):
+    def sapper_blade(self):
         return self.__sapperBlade
 
-    @sapperBlade.setter
-    def sapperBlade(self, value):
-        if not isinstance(value, SapperBlade):
-            raise Exception("Not sapperBlade in setter")
+    @sapper_blade.setter
+    def sapper_blade(self, value: SapperBlade):
         self.__sapperBlade = value
 
     @property
@@ -39,9 +43,7 @@ class Soldier(object):
         return self.__automatic
 
     @automatic.setter
-    def automatic(self, value):
-        if not isinstance(value, Automatic):
-            raise Exception("Not automatic in setter")
+    def automatic(self, value: Automatic):
         self.__automatic = value
 
     @property
@@ -49,12 +51,19 @@ class Soldier(object):
         return self.__pistol
 
     @pistol.setter
-    def pistol(self, value):
-        if not isinstance(value, Pistol):
-            raise Exception("Not automatic in setter")
+    def pistol(self, value: Pistol):
         self.__pistol = value
 
     @property
-    def weaponPrice(self):
-        return self.__knife.price + self.__pistol.price + self.__automatic.price + self.__sapperBlade.price
+    def weapon_price(self):
+        result = 0
+        if self.__knife is not None:
+            result += self.__knife.price
+        if self.__pistol is not None:
+            result += self.__pistol.price
+        if self.__automatic is not None:
+            result += self.__automatic.price
+        if self.__sapperBlade is not None:
+            result += self.__sapperBlade.price
 
+        return result

@@ -5,9 +5,9 @@ class Pistol(GunshotWeapon):
     __armorPiercing = None
 
     @property
-    def armorPiercing(self):
-        return self.__rateFire
+    def armor_piercing(self):
+        return self.__armorPiercing
 
-    @armorPiercing.setter
-    def armorPiercing(self, value):
+    @armor_piercing.setter
+    def armor_piercing(self, value: int):
         self.__armorPiercing = value
