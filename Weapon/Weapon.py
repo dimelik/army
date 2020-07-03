@@ -10,3 +10,7 @@ class Weapon:
     @property
     def price(self):
         return self.__price
+
+    @price.setter
+    def price(self, value: float):
+        self.__price = value
