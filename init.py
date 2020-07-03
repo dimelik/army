@@ -1,4 +1,5 @@
 import sys
+
 sys.path.append('Weapon/')
 sys.path.append('Weapon/ColdWeapon/')
 sys.path.append('Weapon/GunshotWeapon/')
@@ -8,6 +9,7 @@ from Knife import Knife
 from SapperBlade import SapperBlade
 from Automatic import Automatic
 from Pistol import Pistol
+from Money import Money
 
 
 def solder_weapon_print(soldier):
@@ -32,24 +34,28 @@ def solder_weapon_print(soldier):
     print("Soldier weapon price:", soldier.weapon_price)
 
 
-automatic = Automatic(2, 'AK')
+money = Money()
+money.currency('USD')
+
+
+automatic = Automatic(money.amount(23), 'AK')
 automatic.rateFire = 30
 automatic.caliber = 6.2
 automatic.range = 3000
-pistol = Pistol(2, 'Colt')
+pistol = Pistol(money.amount(10), 'Colt')
 pistol.armor_piercing = 30
 pistol.caliber = 9
 pistol.range = 200
-knife = Knife(4, 'Vader')
+knife = Knife(money.amount(3), 'Vader')
 knife.price = 10
 knife.armor_piercing = 80
 knife.blade_length = 20
 knife.material = 'steel'
-knife2 = Knife(2, 'Knife')
+knife2 = Knife(money.amount(2), 'Knife')
 knife2.armor_piercing = 90
 knife2.blade_length = 15
 knife2.material = 'steel'
-sapper = SapperBlade(2, 'Sapp')
+sapper = SapperBlade(money.amount(3), 'Sapp')
 sapper.handle_length = 20
 sapper.blade_length = 15
 sapper.material = 'steel'
