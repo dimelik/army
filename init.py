@@ -34,9 +34,7 @@ def solder_weapon_print(soldier):
     print("Soldier weapon price:", soldier.weapon_price)
 
 
-money = Money()
-money.currency('USD')
-
+money = Money('EUR')
 
 automatic = Automatic(money.amount(23), 'AK')
 automatic.rateFire = 30
