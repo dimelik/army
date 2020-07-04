@@ -1,8 +1,10 @@
 import sys
+
 sys.path.append('army/')
 sys.path.append('weapon/')
 sys.path.append('weapon/cold_weapon/')
 sys.path.append('weapon/gunshot_weapon/')
+
 from army import Army
 from soldier import Soldier
 from knife import Knife
