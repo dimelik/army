@@ -1,8 +1,8 @@
-from Knife import Knife
-from SapperBlade import SapperBlade
-from Automatic import Automatic
-from Pistol import Pistol
-from Money import Money
+from knife import Knife
+from sapper_blade import SapperBlade
+from automatic import Automatic
+from pistol import Pistol
+from money import Money
 
 
 class Soldier:
@@ -55,12 +55,12 @@ class Soldier:
     def weapon_price(self):
         result = Money(0)
         if self.__knife is not None:
-            result = result.add(Money(self.__knife.price))
+            result = result.add(self.__knife.price)
         if self.__pistol is not None:
-            result = result.add(Money(self.__pistol.price))
+            result = result.add(self.__pistol.price)
         if self.__automatic is not None:
-            result = result.add(Money(self.__automatic.price))
+            result = result.add(self.__automatic.price)
         if self.__sapperBlade is not None:
-            result = result.add(Money(self.__sapperBlade.price))
+            result = result.add(self.__sapperBlade.price)
 
-        return result.amount
+        return result

@@ -15,5 +15,6 @@ class Money:
     def amount(self):
         return self.__amount
 
+    @property
     def amount_print(self):
-        return str(self.__amount) + ' ' + self.__currency
+        return str(self.__amount / 100) + ' ' + self.__currency

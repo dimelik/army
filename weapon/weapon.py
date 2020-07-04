@@ -1,4 +1,4 @@
-from Money import Money
+from money import Money
 
 
 class Weapon:
@@ -12,7 +12,7 @@ class Weapon:
 
     @property
     def price(self):
-        return self.__price.amount
+        return self.__price
 
     @price.setter
     def price(self, value: Money):

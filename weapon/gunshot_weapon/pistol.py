@@ -1,7 +1,7 @@
-from ColdWeapon import ColdWeapon
+from gunshot_weapon import GunshotWeapon
 
 
-class Knife(ColdWeapon):
+class Pistol(GunshotWeapon):
     __armorPiercing = None
 
     @property

@@ -1,4 +1,4 @@
-from GunshotWeapon import GunshotWeapon
+from gunshot_weapon import GunshotWeapon
 
 
 class Automatic(GunshotWeapon):

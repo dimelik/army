@@ -1,4 +1,4 @@
-from ColdWeapon import ColdWeapon
+from cold_weapon import ColdWeapon
 
 
 class SapperBlade(ColdWeapon):

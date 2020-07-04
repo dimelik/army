@@ -1,4 +1,4 @@
-from Weapon import Weapon
+from weapon import Weapon
 
 
 class GunshotWeapon(Weapon):
