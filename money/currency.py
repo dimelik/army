@@ -10,7 +10,7 @@ class Currency:
         return self.__currency
 
     @property
-    def cents(self):
+    def convertation_factor(self):
         return self.__convertation_factor
 
 
