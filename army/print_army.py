@@ -24,7 +24,7 @@ def soldier_print(soldier: Soldier):
     print("Soldier weapon price:", soldier.weapon_price.print_amount)
 
 
-def army_print(army: Army):
+def print_army(army: Army):
     print("Army weapon price:", army.army_weapon_price.print_amount)
     for soldier in army.soldiers:
         soldier_print(soldier)

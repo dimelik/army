@@ -52,5 +52,5 @@ soldier2.automatic = automatic
 
 army = Army(soldier, soldier2, soldier, soldier2)
 
-army_print(army)
+print_army(army)
 
