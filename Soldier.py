@@ -55,12 +55,12 @@ class Soldier:
     def weapon_price(self):
         result = Money(0)
         if self.__knife is not None:
-            result.add(Money(self.__knife.price))
+            result = result.add(Money(self.__knife.price))
         if self.__pistol is not None:
-            result.add(Money(self.__pistol.price))
+            result = result.add(Money(self.__pistol.price))
         if self.__automatic is not None:
-            result.add(Money(self.__automatic.price))
+            result = result.add(Money(self.__automatic.price))
         if self.__sapperBlade is not None:
-            result.add(Money(self.__sapperBlade.price))
+            result = result.add(Money(self.__sapperBlade.price))
 
         return result.amount

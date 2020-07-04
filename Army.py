@@ -18,5 +18,5 @@ class Army:
     def army_weapon_price(self):
         result = Money(0)
         for soldier in self.__soldiers:
-            result.add(Money(soldier.weapon_price))
+            result = result.add(Money(soldier.weapon_price))
         return result.amount
