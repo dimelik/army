@@ -1,18 +1,21 @@
 class Money:
 
-    __CENTS = 100
-    __rate = 1
+    def __init__(self, amount: int, currency='USD'):
+        self.__amount = amount
+        self.__currency = currency
 
-    def __init__(self, currency):
-        self.currency(currency)
+    def add(self, other):
+        print(type(self.amount))
+        print(type(other.amount))
+        # if isinstance(other, Money):
+        #     if self.__currency == other.__currency:
+        #         return Money(self.amount + other.amount)
+        # else:
+        #     raise Exception("currency or class Money not right")
 
-    def currency(self, currency):
-        if currency == 'EUR':
-            self.__rate = 2.76 * self.__CENTS
-        if currency == 'USD':
-            self.__rate = 2.43 * self.__CENTS
-        if currency == 'BYN':
-            self.__rate = 1 * self.__CENTS
+    @property
+    def amount(self):
+        return self.__amount
 
-    def amount(self, value):
-        return (self.__rate * value) / self.__CENTS
+    def amount_print(self):
+        return str(self.__amount) + ' ' + self.__currency

@@ -2,6 +2,7 @@ from Knife import Knife
 from SapperBlade import SapperBlade
 from Automatic import Automatic
 from Pistol import Pistol
+from Money import Money
 
 
 class Soldier:
@@ -52,14 +53,14 @@ class Soldier:
 
     @property
     def weapon_price(self):
-        result = 0
+        result = Money(0)
         if self.__knife is not None:
-            result += self.__knife.price
+            result.add(Money(self.__knife.price))
         if self.__pistol is not None:
-            result += self.__pistol.price
+            result.add(Money(self.__pistol.price))
         if self.__automatic is not None:
-            result += self.__automatic.price
+            result.add(Money(self.__automatic.price))
         if self.__sapperBlade is not None:
-            result += self.__sapperBlade.price
+            result.add(Money(self.__sapperBlade.price))
 
         return result

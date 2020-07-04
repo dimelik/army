@@ -34,26 +34,26 @@ def solder_weapon_print(soldier):
     print("Soldier weapon price:", soldier.weapon_price)
 
 
-money = Money('EUR')
+money = Money(0)
 
-automatic = Automatic(money.amount(23), 'AK')
+automatic = Automatic(Money(23), 'AK')
 automatic.rateFire = 30
 automatic.caliber = 6.2
 automatic.range = 3000
-pistol = Pistol(money.amount(10), 'Colt')
+pistol = Pistol(Money(10), 'Colt')
 pistol.armor_piercing = 30
 pistol.caliber = 9
 pistol.range = 200
-knife = Knife(money.amount(3), 'Vader')
+knife = Knife(Money(3), 'Vader')
 knife.price = 10
 knife.armor_piercing = 80
 knife.blade_length = 20
 knife.material = 'steel'
-knife2 = Knife(money.amount(2), 'Knife')
+knife2 = Knife(Money(2), 'Knife')
 knife2.armor_piercing = 90
 knife2.blade_length = 15
 knife2.material = 'steel'
-sapper = SapperBlade(money.amount(3), 'Sapp')
+sapper = SapperBlade(Money(3), 'Sapp')
 sapper.handle_length = 20
 sapper.blade_length = 15
 sapper.material = 'steel'

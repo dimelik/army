@@ -1,4 +1,5 @@
 from Soldier import Soldier
+from Money import Money
 
 
 class Army:
@@ -15,7 +16,7 @@ class Army:
 
     @property
     def army_weapon_price(self):
-        result = 0
+        result = Money(0)
         for soldier in self.__soldiers:
-            result += soldier.weapon_price
+            result.add(Money(soldier.weapon_price))
         return result

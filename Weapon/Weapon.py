@@ -1,5 +1,8 @@
+from Money import Money
+
+
 class Weapon:
-    def __init__(self, price: float, name: str):
+    def __init__(self, price: Money, name: str):
         self.__name = name
         self.__price = price
 
@@ -12,5 +15,5 @@ class Weapon:
         return self.__price
 
     @price.setter
-    def price(self, value: float):
+    def price(self, value: Money):
         self.__price = value
