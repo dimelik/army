@@ -12,7 +12,7 @@ class Weapon:
 
     @property
     def price(self):
-        return self.__price
+        return self.__price.amount
 
     @price.setter
     def price(self, value: Money):

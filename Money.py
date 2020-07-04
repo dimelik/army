@@ -5,13 +5,11 @@ class Money:
         self.__currency = currency
 
     def add(self, other):
-        print(type(self.amount))
-        print(type(other.amount))
-        # if isinstance(other, Money):
-        #     if self.__currency == other.__currency:
-        #         return Money(self.amount + other.amount)
-        # else:
-        #     raise Exception("currency or class Money not right")
+        if isinstance(other, Money):
+            if self.__currency == other.__currency:
+                return Money(self.amount + other.amount)
+        else:
+            raise Exception("currency or class Money not right")
 
     @property
     def amount(self):

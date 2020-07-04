@@ -19,4 +19,4 @@ class Army:
         result = Money(0)
         for soldier in self.__soldiers:
             result.add(Money(soldier.weapon_price))
-        return result
+        return result.amount

@@ -63,4 +63,4 @@ class Soldier:
         if self.__sapperBlade is not None:
             result.add(Money(self.__sapperBlade.price))
 
-        return result
+        return result.amount
