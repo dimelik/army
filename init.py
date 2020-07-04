@@ -1,5 +1,5 @@
 import sys
-
+sys.path.append('army/')
 sys.path.append('weapon/')
 sys.path.append('weapon/cold_weapon/')
 sys.path.append('weapon/gunshot_weapon/')
@@ -14,7 +14,7 @@ from print_army import *
 
 
 automatic = Automatic(Money(2300), 'AK')
-automatic.rateFire = 30
+automatic.rate_fire = 30
 automatic.caliber = 6.2
 automatic.range = 3000
 pistol = Pistol(Money(1000), 'Colt')
