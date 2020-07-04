@@ -53,14 +53,5 @@ class Soldier:
 
     @property
     def weapon_price(self):
-        result = Money(0)
-        if self.__knife is not None:
-            result = result.add(self.__knife.price)
-        if self.__pistol is not None:
-            result = result.add(self.__pistol.price)
-        if self.__automatic is not None:
-            result = result.add(self.__automatic.price)
-        if self.__sapperBlade is not None:
-            result = result.add(self.__sapperBlade.price)
-
+        result = self.__knife.price.add(self.__pistol.price).add(self.__automatic.price).add(self.__sapperBlade.price)
         return result

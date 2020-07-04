@@ -1,5 +1,4 @@
 from soldier import Soldier
-from money import Money
 
 
 class Army:
@@ -16,7 +15,8 @@ class Army:
 
     @property
     def army_weapon_price(self):
-        result = Money(0)
-        for soldier in self.__soldiers:
+        copy_soldiers = self.__soldiers.copy()
+        result = copy_soldiers.pop().weapon_price
+        for soldier in copy_soldiers:
             result = result.add(soldier.weapon_price)
         return result
