@@ -11,7 +11,7 @@ class Money:
     def add(self, other):
         if isinstance(other, Money):
             if self.__currency == other.currency:
-                return Money(self.amount + other.amount, self.__currency)
+                return Money(self.amount / self.currency.convertation_factor + other.amount / self.currency.convertation_factor, self.__currency)
         else:
             raise Exception("currency or class money not right")
 
@@ -21,7 +21,7 @@ class Money:
 
     @property
     def amount(self):
-        return self.__amount / 100
+        return self.__amount
 
     @property
     def print_amount(self):
