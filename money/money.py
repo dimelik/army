@@ -4,7 +4,7 @@ from currency import Currency
 class Money:
 
     def __init__(self, amount: float, currency: Currency):
-        self.__amount = int(amount * currency.convertation_factor)
+        self.__amount = int(round(amount * currency.convertation_factor))
         self.__currency = currency
         self.__as_string = str(self.__amount / self.__currency.convertation_factor) + ' ' + self.__currency.currency
 
@@ -21,7 +21,7 @@ class Money:
 
     @property
     def amount(self):
-        return self.__amount
+        return self.__amount / 100
 
     @property
     def print_amount(self):
