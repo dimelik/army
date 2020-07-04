@@ -3,7 +3,7 @@ from currency import Currency
 
 class Money:
 
-    def __init__(self, amount: int, currency: Currency):
+    def __init__(self, amount: float, currency: Currency):
         self.__amount = amount * currency.cents
         self.__currency = currency
         self.__as_string = str(self.__amount / self.__currency.cents) + ' ' + self.__currency.currency
