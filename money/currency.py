@@ -4,7 +4,6 @@ class Currency:
         self.__currency = currency
         self.__convertation_factor = convertation_factor
 
-
     @property
     def currency(self):
         return self.__currency
