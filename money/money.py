@@ -3,15 +3,18 @@ from currency import Currency
 
 class Money:
 
-    def __init__(self, amount: float, currency: Currency):
-        self.__amount = int(round(amount * currency.convertation_factor))
+    def __init__(self, amount: float, currency: Currency, other=None):
+        if other == 1:
+            self.__amount = int(round(amount))
+        else:
+            self.__amount = int(round(amount * currency.convertation_factor))
         self.__currency = currency
         self.__as_string = str(self.__amount / self.__currency.convertation_factor) + ' ' + self.__currency.currency
 
     def add(self, other):
         if isinstance(other, Money):
             if self.__currency == other.currency:
-                return Money(self.amount / self.currency.convertation_factor + other.amount / self.currency.convertation_factor, self.__currency)
+                return Money(self.amount + other.amount, self.__currency, other=1)
         else:
             raise Exception("currency or class money not right")
 
