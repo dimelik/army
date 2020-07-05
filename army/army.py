@@ -13,10 +13,9 @@ class Army:
     def soldiers(self):
         return self.__set.get_items
 
-    @property
     def army_weapon_price(self):
-        copy_soldiers = self.__set.get_items.copy()
-        result = copy_soldiers.pop().weapon_price
+        copy_soldiers = self.__set.get_items
+        result = next(copy_soldiers).weapon_price()
         for soldier in copy_soldiers:
-            result = result.add(soldier.weapon_price)
+            result = result.add(soldier.weapon_price())
         return result

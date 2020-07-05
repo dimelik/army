@@ -5,15 +5,19 @@ from sapper_blade import SapperBlade
 from automatic import Automatic
 from pistol import Pistol
 
+
 def soldier_print(soldier: Soldier):
     print("Soldier name:", soldier.name)
+    print("Soldier weapon price:", soldier.weapon_price().print_amount)
     print("Soldier weapon: ")
     stack_list = []
     while True:
-        if not soldier.weapon:
-            break
+        weapon = soldier.remove_weapon
+        if weapon is not False:
+            stack_list.append(weapon)
         else:
-            stack_list.append(soldier.remove_weapon)
+            break
+
     for stack_full in stack_list[::-1]:
         soldier.add_weapon = stack_full
     for weapon in stack_list:
@@ -39,10 +43,9 @@ def soldier_print(soldier: Soldier):
                 ", rate fire->", weapon.rate_fire)
         else:
             raise Exception("Your soldier die now")
-    print("Soldier weapon price:", soldier.weapon_price.print_amount)
 
 
 def print_army(army: Army):
-    print("Army weapon price:", army.army_weapon_price.print_amount)
+    print("Army weapon price:", army.army_weapon_price().print_amount)
     for soldier in army.soldiers:
         soldier_print(soldier)

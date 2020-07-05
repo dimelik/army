@@ -1,36 +1,38 @@
 class BubbleSortedSet:
 
     def __init__(self):
-        self.__sorted_set = []
+        self.__items = []
 
     @property
     def get_items(self):
-        return self.__sorted_set
+        for items in self.__items:
+            yield items
 
     def remove(self, value):
-        self.__sorted_set[value] = None
+        index = self.__items.index(value)
+        del self.__items[index]
 
     def get_size(self):
-        return len(self.__sorted_set)
+        return len(self.__items)
 
     def clear(self):
-        self.__sorted_set = []
+        self.__items = []
 
     def add(self, value):
-        if value not in self.__sorted_set:
-            self.__sorted_set.append(value)
+        if value not in self.__items:
+            self.__items.append(value)
         else:
             raise Exception('It is not unique value')
         swapped = True
         while swapped:
             swapped = False
-            for i in range(len(self.__sorted_set) - 1):
+            for i in range(len(self.__items) - 1):
                 if value is not str or float or int:
-                    if self.__sorted_set[i].name > self.__sorted_set[i + 1].name:
-                        self.__sorted_set[i], self.__sorted_set[i + 1] = self.__sorted_set[i + 1], self.__sorted_set[i]
+                    if self.__items[i].name > self.__items[i + 1].name:
+                        self.__items[i], self.__items[i + 1] = self.__items[i + 1], self.__items[i]
                 else:
-                    if self.__sorted_set[i].name > self.__sorted_set[i + 1].name:
+                    if self.__items[i].name > self.__items[i + 1].name:
                         # Меняем элементы
-                        self.__sorted_set[i], self.__sorted_set[i + 1] = self.__sorted_set[i + 1], self.__sorted_set[i]
+                        self.__items[i], self.__items[i + 1] = self.__items[i + 1], self.__items[i]
                         # Устанавливаем swapped в True для следующей итерации
                     swapped = True

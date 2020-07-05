@@ -1,14 +1,16 @@
 class Stack:
     def __init__(self):
-        self.__stack = []
+        self.__items = []
 
     def push(self, value):
-        self.__stack.append(value)
+        self.__items.append(value)
 
     def pop(self):
-        return self.__stack.pop()
+        if len(self.__items) == 0:
+            return False
+        return self.__items.pop()
 
     def top(self):
-        if len(self.__stack) == 0:
-            return False
-        return self.__stack[-1]
+        if len(self.__items) == 0:
+            return None
+        return self.__items[-1]
