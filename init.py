@@ -43,7 +43,6 @@ soldier.bug.weapon = pistol
 soldier.bug.weapon = knife
 soldier.bug.weapon = sapper
 soldier.bug.weapon = automatic
-weapon_soldier = soldier.soldier_weapon
 
 soldier2 = Soldier('aaa')
 soldier2.bug.weapon = pistol

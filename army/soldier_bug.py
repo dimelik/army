@@ -15,5 +15,9 @@ class Bug:
         self.__weapons.append(value)
 
     @property
+    def next_weapon(self):
+        return self.__weapons[list.count(self.__weapons)]
+
+    @property
     def weapons(self):
         return self.__weapons

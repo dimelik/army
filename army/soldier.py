@@ -23,6 +23,3 @@ class Soldier:
     def bug(self):
         return self.__bug
 
-    @property
-    def soldier_weapon(self):
-        return self.__bug.weapon
