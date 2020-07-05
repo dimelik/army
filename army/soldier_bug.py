@@ -1,23 +1,25 @@
-from weapon import Weapon
+from stack import Stack
 
 
 class Bug:
-
     def __init__(self):
-        self.__weapons = []
+        self.__stack = Stack()
+
+    def add(self, value):
+        self.__stack.push(value)
+
+    def get_last_added(self):
+        return self.__stack.top()
+
+    def remove_last_added(self):
+        return self.__stack.pop()
 
     @property
-    def weapon(self):
-        return self.__weapons.pop()
+    def stack(self):
+        return self.__stack
 
-    @weapon.setter
-    def weapon(self, value: Weapon):
-        self.__weapons.append(value)
 
-    @property
-    def next_weapon(self):
-        return self.__weapons[list.count(self.__weapons)]
-
-    @property
-    def weapons(self):
-        return self.__weapons
+x = Bug()
+x.add('123')
+x.add(123)
+print(x.get_last_added())

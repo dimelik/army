@@ -8,7 +8,7 @@ from pistol import Pistol
 def soldier_print(soldier: Soldier):
     print("Soldier name:", soldier.name)
     print("Soldier weapon: ")
-    for weapon in soldier.bug.weapons:
+    for weapon in soldier.weapons:
         if weapon.__class__ == Knife:
             print("Knife: ", end=" ")
             print("name->", weapon.name, ", price->", weapon.price.print_amount,
