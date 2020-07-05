@@ -1,11 +1,12 @@
 from soldier import Soldier
-from bubble_sorted_set import BubbleSortedSet
+from sorted_set import SortedSet
+from bubble_sort import compare_object
 
 
 class Army:
 
     def __init__(self, *soldier: Soldier):
-        self.__set = BubbleSortedSet()
+        self.__set = SortedSet(compare_object)
         for soldier in soldier:
             self.__set.add(soldier)
 
