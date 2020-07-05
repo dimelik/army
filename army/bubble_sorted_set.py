@@ -22,23 +22,19 @@ class BubbleSortedSet:
         else:
             raise Exception('It is not unique value')
         swapped = True
-        if value is not str or int or float:
-            while swapped:
-                swapped = False
+        while swapped:
+            swapped = False
+            if value is not str or float or int:
                 for i in range(len(self.__sorted_set) - 1):
                     if self.__sorted_set[i].name > self.__sorted_set[i + 1].name:
                         # Меняем элементы
                         self.__sorted_set[i], self.__sorted_set[i + 1] = self.__sorted_set[i + 1], self.__sorted_set[i]
                         # Устанавливаем swapped в True для следующей итерации
                         swapped = True
-        else:
-            while swapped:
-                swapped = False
+            else:
                 for i in range(len(self.__sorted_set) - 1):
-                    if self.__sorted_set[i] > self.__sorted_set[i + 1]:
+                    if self.__sorted_set[i].name > self.__sorted_set[i + 1].name:
                         # Меняем элементы
                         self.__sorted_set[i], self.__sorted_set[i + 1] = self.__sorted_set[i + 1], self.__sorted_set[i]
                         # Устанавливаем swapped в True для следующей итерации
                         swapped = True
-
-
