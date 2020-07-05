@@ -24,17 +24,13 @@ class BubbleSortedSet:
         swapped = True
         while swapped:
             swapped = False
-            if value is not str or float or int:
-                for i in range(len(self.__sorted_set) - 1):
+            for i in range(len(self.__sorted_set) - 1):
+                if value is not str or float or int:
+                    if self.__sorted_set[i].name > self.__sorted_set[i + 1].name:
+                        self.__sorted_set[i], self.__sorted_set[i + 1] = self.__sorted_set[i + 1], self.__sorted_set[i]
+                else:
                     if self.__sorted_set[i].name > self.__sorted_set[i + 1].name:
                         # Меняем элементы
                         self.__sorted_set[i], self.__sorted_set[i + 1] = self.__sorted_set[i + 1], self.__sorted_set[i]
                         # Устанавливаем swapped в True для следующей итерации
-                        swapped = True
-            else:
-                for i in range(len(self.__sorted_set) - 1):
-                    if self.__sorted_set[i].name > self.__sorted_set[i + 1].name:
-                        # Меняем элементы
-                        self.__sorted_set[i], self.__sorted_set[i + 1] = self.__sorted_set[i + 1], self.__sorted_set[i]
-                        # Устанавливаем swapped в True для следующей итерации
-                        swapped = True
+                    swapped = True
