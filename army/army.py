@@ -1,13 +1,10 @@
 from soldier import Soldier
-
+from bubble_sort import bubble_sorted_set
 
 class Army:
-    __soldiers = []
 
     def __init__(self, *soldier: Soldier):
-        for sold in soldier:
-            if sold not in self.__soldiers:
-                self.__soldiers.append(sold)
+        self.__soldiers = bubble_sorted_set(soldier)
 
     @property
     def soldiers(self):
