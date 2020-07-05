@@ -1,18 +1,6 @@
-import sys
-
-sys.path.append('../army/')
-sys.path.append('../weapon/')
-sys.path.append('../money/')
-sys.path.append('../weapon/cold_weapon/')
-sys.path.append('../weapon/gunshot_weapon/')
-from soldier_bug import Bug
+from bug import Bug
 from weapon import Weapon
-from knife import Knife
-from sapper_blade import SapperBlade
-from automatic import Automatic
-from pistol import Pistol
-from currency import *
-from money import Money
+
 
 class Soldier:
 
@@ -22,38 +10,34 @@ class Soldier:
 
     @property
     def weapon_price(self):
-        copy_bug = self.bug.stack.copy()
-        result = copy_bug.pop().price
-        for weapon in copy_bug:
-            result = result.add(weapon.price)
-        return result
+        stack_list = []
+        while True:
+            if not self.weapon:
+                break
+            else:
+                stack_list.append(self.remove_weapon)
+        first_from_stack_list = stack_list.pop()
+        return_price = first_from_stack_list.price
+        for price in stack_list[::-1]:
+            return_price = return_price.add(price.price)
+        stack_list.append(first_from_stack_list)
+        for stack_full in stack_list[::-1]:
+            self.add_weapon = stack_full
+        return return_price
 
     @property
     def name(self):
         return self.__name
 
     @property
-    def bug(self):
-        return self.__bug.stack
-
-    @property
     def weapon(self):
-        return self.__bug.get_last_added
+        return self.__bug.get_last_added()
 
     @weapon.setter
-    def weapon(self, value: Weapon):
+    def add_weapon(self, value: Weapon):
         self.__bug.add(value)
 
     @property
     def remove_weapon(self):
-        return self.__bug.remove_last_added
+        return self.__bug.remove_last_added()
 
-
-sol = Soldier('asd')
-sapper = SapperBlade(Money(300.20, USD), 'Sapp')
-sapper.handle_length = 20
-sapper.blade_length = 15
-sapper.material = 'steel'
-
-sol.weapon = sapper
-print(sol.weapon)

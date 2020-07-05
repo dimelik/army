@@ -8,7 +8,6 @@ sys.path.append('weapon/gunshot_weapon/')
 
 from army import Army
 from soldier import Soldier
-from soldier_bug import Bug
 from knife import Knife
 from sapper_blade import SapperBlade
 from automatic import Automatic
@@ -39,18 +38,18 @@ sapper.blade_length = 15
 sapper.material = 'steel'
 
 soldier = Soldier('ab')
-soldier.bug.weapon = pistol
-soldier.bug.weapon = knife
-soldier.bug.weapon = sapper
-soldier.bug.weapon = automatic
+soldier.add_weapon = pistol
+soldier.add_weapon = knife
+soldier.add_weapon = sapper
+soldier.add_weapon = automatic
 
 soldier2 = Soldier('aaa')
-soldier2.bug.weapon = pistol
-soldier2.bug.weapon = knife2
-soldier2.bug.weapon = sapper
-soldier2.bug.weapon = automatic
+soldier2.add_weapon = pistol
+soldier2.add_weapon = knife2
+soldier2.add_weapon = sapper
+soldier2.add_weapon = automatic
 
-army = Army(soldier, soldier2, soldier, soldier)
+army = Army(soldier, soldier2)
 
 print_army(army)
 

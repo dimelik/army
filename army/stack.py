@@ -9,7 +9,6 @@ class Stack:
         return self.__stack.pop()
 
     def top(self):
+        if len(self.__stack) == 0:
+            return False
         return self.__stack[-1]
-
-    def stack(self):
-        return self.__stack

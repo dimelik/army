@@ -8,7 +8,15 @@ from pistol import Pistol
 def soldier_print(soldier: Soldier):
     print("Soldier name:", soldier.name)
     print("Soldier weapon: ")
-    for weapon in soldier.weapons:
+    stack_list = []
+    while True:
+        if not soldier.weapon:
+            break
+        else:
+            stack_list.append(soldier.remove_weapon)
+    for stack_full in stack_list[::-1]:
+        soldier.add_weapon = stack_full
+    for weapon in stack_list:
         if weapon.__class__ == Knife:
             print("Knife: ", end=" ")
             print("name->", weapon.name, ", price->", weapon.price.print_amount,
