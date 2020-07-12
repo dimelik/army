@@ -17,7 +17,13 @@ class Map:
                 return soldier
 
     def remove(self, key):
-        del self.__keys[key]
+        index_for_set = None
+        for soldier in self.__sorted_set.get_items:
+            if soldier.get_soldier_key() == key:
+                index_for_set = soldier
+        self.__sorted_set.remove(index_for_set)
+        index = self.__keys.index(key)
+        del self.__keys[index]
 
     def get_size(self):
         return len(self.__keys)
