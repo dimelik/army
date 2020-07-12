@@ -4,7 +4,10 @@ class Map:
         self.__items = dict()
 
     def add(self, key, value):
-        self.__items[key] = value
+        if key not in self.__items:
+            self.__items[key] = value
+        else:
+            raise Exception('It is not unique value')
 
     def get(self, key):
         return self.__items[key]
