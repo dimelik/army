@@ -43,3 +43,7 @@ class Soldier:
 
     def get_soldier_key(self):
         return self.__soldier_key.name + self.__soldier_key.military_unit_number
+
+    @property
+    def name(self):
+        return self.__soldier_key.name

@@ -1,5 +1,4 @@
 from soldier import Soldier, compare_object
-from sorted_set import SortedSet
 from map import Map
 
 
@@ -12,13 +11,15 @@ class Army:
             self.__map.add(soldier.get_soldier_key(), soldier)
             self.__soldiers_keys.append(soldier.get_soldier_key())
 
-    @property
-    def soldiers(self):
-        return self.__map.get_items
+    def get_soldiers(self):
+        result = []
+        for soldier_key in self.__soldiers_keys:
+            result.append(self.__map.get(soldier_key))
+        return result
 
     def army_weapon_price(self):
-        copy_soldiers = self.__map.get_items
-        result = next(copy_soldiers).get_weapon_price()
-        for soldier in copy_soldiers:
-            result = result.add(soldier.get_weapon_price())
+        result = self.__map.get(self.__soldiers_keys[0]).get_weapon_price()
+        for key in self.__soldiers_keys:
+            if key != self.__soldiers_keys[0]:
+                result = result.add(self.__map.get(key).get_weapon_price())
         return result

@@ -7,7 +7,7 @@ class Map:
         self.__items[key] = value
 
     def get(self, key):
-        return self.__items
+        return self.__items[key]
 
     def remove(self, key):
         del self.__items[key]
