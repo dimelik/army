@@ -5,7 +5,7 @@ from map import Map
 class Army:
 
     def __init__(self, *soldier: Soldier):
-        self.__map = Map()
+        self.__map = Map(compare_object)
         self.__soldiers_keys = []
         for soldier in soldier:
             self.__map.add(soldier.get_soldier_key(), soldier)
