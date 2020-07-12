@@ -1,6 +1,7 @@
 import sys
 
 sys.path.append('army/')
+sys.path.append('army/soldier')
 sys.path.append('weapon/')
 sys.path.append('money/')
 sys.path.append('data_structure/')
@@ -8,7 +9,6 @@ sys.path.append('weapon/cold_weapon/')
 sys.path.append('weapon/gunshot_weapon/')
 
 from army import Army
-from soldier_key import SoldierKey
 from soldier import Soldier
 from knife import Knife
 from sapper_blade import SapperBlade
@@ -54,5 +54,3 @@ soldier2.add_weapon(automatic)
 army = Army(soldier, soldier2)
 
 print_army(army)
-
-

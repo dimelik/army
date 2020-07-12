@@ -1,8 +1,9 @@
 from soldier import *
 from map import Map
+from meta_singleton import MetaSingleton
 
 
-class Army:
+class Army(metaclass=MetaSingleton):
 
     def __init__(self, *soldier: Soldier):
         self.__map = Map(compare_key)
@@ -11,6 +12,9 @@ class Army:
 
     def get_soldiers(self):
         return self.__map.get_items()
+
+    def remove_soldier(self, soldier: Soldier):
+        self.__map.remove(soldier.get_soldier_key())
 
     def army_weapon_price(self):
         gen_soldiers = self.get_soldiers()
