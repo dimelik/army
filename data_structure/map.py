@@ -1,5 +1,5 @@
 from sorted_set import SortedSet
-
+from soldier import Soldier
 
 class Map:
 
@@ -12,9 +12,10 @@ class Map:
         self.__keys.append(key)
 
     def get(self, key):
-        for soldier in self.__sorted_set.get_items:
-            if soldier.get_soldier_key() == key:
-                return soldier
+        for item in self.__sorted_set.get_items:
+            if isinstance(item, Soldier):
+                if item.get_soldier_key() == key:
+                    return item
 
     def remove(self, key):
         index_for_set = None
