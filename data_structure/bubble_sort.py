@@ -8,12 +8,3 @@ def bubble_sort(array, compare):
                 array[i], array[i + 1] = array[i + 1], array[i]
                 # Устанавливаем swapped в True для следующей итерации
                 swapped = True
-
-
-def compare_object(arg1, arg2):
-    if arg1.name > arg2.name:
-        return 1
-    if arg1.name < arg2.name:
-        return -1
-    if arg1.name == arg2.name:
-        return 0

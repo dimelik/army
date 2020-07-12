@@ -1,17 +1,26 @@
 from bug import Bug
-from weapon import Weapon
+from soldier_key import SoldierKey
+
+
+def compare_object(arg1, arg2):
+    if arg1.name > arg2.name:
+        return 1
+    if arg1.name < arg2.name:
+        return -1
+    if arg1.name == arg2.name:
+        return 0
 
 
 class Soldier:
 
-    def __init__(self, name: str):
+    def __init__(self, soldier_key: SoldierKey):
         self.__bug = Bug()
-        self.__name = name
+        self.__soldier_key = soldier_key
 
-    def weapon_price(self):
+    def get_weapon_price(self):
         stack_list = []
         while True:
-            weapon = self.remove_weapon
+            weapon = self.remove_top_weapon
             if weapon is not False:
                 stack_list.append(weapon)
             else:
@@ -25,14 +34,12 @@ class Soldier:
             self.add_weapon(stack_full)
         return return_price
 
-    @property
-    def name(self):
-        return self.__name
-
     def add_weapon(self, value):
         self.__bug.add(value)
 
     @property
-    def remove_weapon(self):
+    def remove_top_weapon(self):
         return self.__bug.remove_last_added()
 
+    def get_soldier_key(self):
+        return self.__soldier_key.name + self.__soldier_key.military_unit_number

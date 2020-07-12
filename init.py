@@ -8,6 +8,7 @@ sys.path.append('weapon/cold_weapon/')
 sys.path.append('weapon/gunshot_weapon/')
 
 from army import Army
+from soldier_key import SoldierKey
 from soldier import Soldier
 from knife import Knife
 from sapper_blade import SapperBlade
@@ -38,13 +39,15 @@ sapper.handle_length = 20
 sapper.blade_length = 15
 sapper.material = 'steel'
 
-soldier = Soldier('ab')
+soldier_key = SoldierKey(1212, 'ab')
+soldier = Soldier(soldier_key)
 soldier.add_weapon(pistol)
 soldier.add_weapon(knife)
 soldier.add_weapon(sapper)
 soldier.add_weapon(automatic)
 
-soldier2 = Soldier('aaa')
+soldier_key2 = SoldierKey(12122, 'aaa')
+soldier2 = Soldier(soldier_key2)
 soldier2.add_weapon(pistol)
 soldier2.add_weapon(knife2)
 soldier2.add_weapon(sapper)

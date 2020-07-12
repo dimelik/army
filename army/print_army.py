@@ -8,11 +8,11 @@ from pistol import Pistol
 
 def soldier_print(soldier: Soldier):
     print("Soldier name:", soldier.name)
-    print("Soldier weapon price:", soldier.weapon_price().print_amount)
+    print("Soldier weapon price:", soldier.get_weapon_price().print_amount)
     print("Soldier weapon: ")
     stack_list = []
     while True:
-        weapon = soldier.remove_weapon
+        weapon = soldier.remove_top_weapon
         if weapon is not False:
             stack_list.append(weapon)
         else:

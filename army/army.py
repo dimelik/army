@@ -1,22 +1,24 @@
-from soldier import Soldier
+from soldier import Soldier, compare_object
 from sorted_set import SortedSet
-from bubble_sort import compare_object
+from map import Map
 
 
 class Army:
 
     def __init__(self, *soldier: Soldier):
-        self.__set = SortedSet(compare_object)
+        self.__map = Map()
+        self.__soldiers_keys = []
         for soldier in soldier:
-            self.__set.add(soldier)
+            self.__map.add(soldier.get_soldier_key(), soldier)
+            self.__soldiers_keys.append(soldier.get_soldier_key())
 
     @property
     def soldiers(self):
-        return self.__set.get_items
+        return self.__map.get_items
 
     def army_weapon_price(self):
-        copy_soldiers = self.__set.get_items
-        result = next(copy_soldiers).weapon_price()
+        copy_soldiers = self.__map.get_items
+        result = next(copy_soldiers).get_weapon_price()
         for soldier in copy_soldiers:
-            result = result.add(soldier.weapon_price())
+            result = result.add(soldier.get_weapon_price())
         return result
