@@ -39,15 +39,13 @@ sapper.handle_length = 20
 sapper.blade_length = 15
 sapper.material = 'steel'
 
-soldier_key = SoldierKey(1212, 'ab')
-soldier = Soldier(soldier_key)
+soldier = Soldier(1212, 'ab')
 soldier.add_weapon(pistol)
 soldier.add_weapon(knife)
 soldier.add_weapon(sapper)
 soldier.add_weapon(automatic)
 
-soldier_key2 = SoldierKey(12122, 'aaa')
-soldier2 = Soldier(soldier_key2)
+soldier2 = Soldier(12122, 'aaa')
 soldier2.add_weapon(pistol)
 soldier2.add_weapon(knife2)
 soldier2.add_weapon(sapper)

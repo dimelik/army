@@ -13,9 +13,9 @@ def compare_object(arg1, arg2):
 
 class Soldier:
 
-    def __init__(self, soldier_key: SoldierKey):
+    def __init__(self, military_unit_number, name):
         self.__bug = Bug()
-        self.__soldier_key = soldier_key
+        self.__soldier_key = SoldierKey(military_unit_number, name)
 
     def get_weapon_price(self):
         stack_list = []
