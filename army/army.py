@@ -18,8 +18,8 @@ class Army:
         return result
 
     def army_weapon_price(self):
-        result = self.__map.get(self.__soldiers_keys[0]).get_weapon_price()
-        for key in self.__soldiers_keys:
-            if key != self.__soldiers_keys[0]:
-                result = result.add(self.__map.get(key).get_weapon_price())
+        result = self.get_soldiers()[0].get_weapon_price()
+        for key in self.get_soldiers():
+            if key != self.get_soldiers()[0]:
+                result = result.add(key.get_weapon_price())
         return result
