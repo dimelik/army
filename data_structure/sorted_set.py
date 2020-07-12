@@ -1,5 +1,5 @@
 from bubble_sort import bubble_sort
-
+from binary_search import binary_search
 
 class SortedSet:
 
@@ -28,3 +28,7 @@ class SortedSet:
         else:
             raise Exception('It is not unique value')
         bubble_sort(self.__items, self.__compare)
+
+    def index_of(self, value):
+        result = binary_search(self.__items, value)
+        return result

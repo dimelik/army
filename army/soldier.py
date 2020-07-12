@@ -11,6 +11,15 @@ def compare_object(arg1, arg2):
         return 0
 
 
+def compare_key(arg1, arg2):
+    if arg1 > arg2:
+        return 1
+    if arg1 < arg2:
+        return -1
+    if arg1 == arg2:
+        return 0
+
+
 class Soldier:
 
     def __init__(self, military_unit_number, name):

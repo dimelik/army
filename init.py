@@ -39,7 +39,7 @@ sapper.handle_length = 20
 sapper.blade_length = 15
 sapper.material = 'steel'
 
-soldier = Soldier(1212, 'ab')
+soldier = Soldier(1212, 'ccc')
 soldier.add_weapon(pistol)
 soldier.add_weapon(knife)
 soldier.add_weapon(sapper)
