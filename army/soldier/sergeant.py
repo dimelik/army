@@ -4,14 +4,14 @@ from soldier import Soldier
 
 class Sergeant(ABC):
 
-    def __init__(self, military_unit_number, name):
+    def __init__(self, military_unit_number: int, name: str):
         self.__soldier = self.create_sergeant(military_unit_number, name)
 
     @abstractmethod
     def add_weapon_sergeant(self):
         pass
 
-    def create_sergeant(self, military_unit_number, name):
+    def create_sergeant(self, military_unit_number: int, name: str):
         return Soldier(military_unit_number, name).clone()
 
     @property

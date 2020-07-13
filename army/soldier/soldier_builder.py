@@ -7,10 +7,10 @@ from pistol import Pistol
 
 class SoldierBuilder:
 
-    def __init__(self, military_unit_number, name):
+    def __init__(self, military_unit_number: int, name: str):
         self.__soldier = Soldier(military_unit_number, name).clone()
 
-    def reset(self, military_unit_number, name):
+    def reset(self, military_unit_number: int, name: str):
         self.__soldier = Soldier(military_unit_number, name).clone()
 
     @property
