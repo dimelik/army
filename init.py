@@ -19,6 +19,7 @@ from pistol import Pistol
 from money import Money
 from print_army import *
 from currency import *
+from create_soldier import create_soldier
 
 automatic = Automatic(Money(2300, USD), 'AK')
 automatic.rate_fire = 30
@@ -58,6 +59,7 @@ ressiano = russian.add_weapon_sergeant(sapper, pistol, automatic)
 american = AmericanSergeant(1111, 'usa')
 americano = american.add_weapon_sergeant(knife, pistol, automatic)
 
-army = Army(soldier, soldier2, ressiano, americano)
+soldiers = create_soldier(sapper, automatic, pistol, knife)
+army = Army(ressiano, americano, soldiers)
 
 print_army(army)

@@ -1,5 +1,6 @@
 from bug import Bug
 from soldier_key import SoldierKey
+import copy
 
 
 def compare_object(arg1, arg2):
@@ -24,7 +25,9 @@ class Soldier:
 
     def __init__(self, military_unit_number, name):
         self.__bug = Bug()
-        self.__soldier_key = SoldierKey(military_unit_number, name)
+        self.__name = name
+        self.__military_unit_number = military_unit_number
+        self.__soldier_key = SoldierKey(self.__military_unit_number, self.__name)
 
     def get_weapon_price(self):
         stack_list = []
@@ -56,3 +59,6 @@ class Soldier:
     @property
     def name(self):
         return self.__soldier_key.name
+
+    def clone(self):
+        return copy.copy(self)

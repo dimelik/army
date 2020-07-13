@@ -12,7 +12,7 @@ class Sergeant(ABC):
         pass
 
     def create_sergeant(self, military_unit_number, name):
-        return Soldier(military_unit_number, name)
+        return Soldier(military_unit_number, name).clone()
 
     @property
     def soldier(self):

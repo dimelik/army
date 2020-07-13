@@ -8,7 +8,11 @@ class Army(metaclass=MetaSingleton):
     def __init__(self, *soldier: Soldier):
         self.__map = Map(compare_key)
         for soldier in soldier:
-            self.__map.add(soldier.get_soldier_key(), soldier)
+            if not isinstance(soldier, Soldier):
+                for soldier in soldier:
+                    self.__map.add(soldier.get_soldier_key(), soldier)
+            else:
+                self.__map.add(soldier.get_soldier_key(), soldier)
 
     def get_soldiers(self):
         return self.__map.get_items()

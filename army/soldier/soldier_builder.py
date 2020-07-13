@@ -1,25 +1,31 @@
 from soldier import Soldier
+from knife import Knife
+from sapper_blade import SapperBlade
+from automatic import Automatic
+from pistol import Pistol
 
 
 class SoldierBuilder:
 
-    def __init__(self, military_unit_number, name) -> None:
-        self.reset(self, military_unit_number, name)
+    def __init__(self, military_unit_number, name):
+        self.__soldier = Soldier(military_unit_number, name).clone()
 
-    def reset(self, military_unit_number, name) -> None:
-        self._product = Soldier(self, military_unit_number, name)
+    def reset(self, military_unit_number, name):
+        self.__soldier = Soldier(military_unit_number, name).clone()
 
     @property
-    def product(self) -> Soldier:
-        product = self._product
-        self.reset()
-        return product
+    def soldier(self) -> Soldier:
+        soldier = self.__soldier
+        return soldier
 
-    def produce_part_a(self) -> None:
-        self._product.add("PartA1")
+    def add_knife(self, knife: Knife):
+        self.__soldier.add_weapon(knife)
 
-    def produce_part_b(self) -> None:
-        self._product.add("PartB1")
+    def add_sapper(self, sapper: SapperBlade):
+        self.__soldier.add_weapon(sapper)
 
-    def produce_part_c(self) -> None:
-        self._product.add("PartC1")
+    def add_pistol(self, pistol: Pistol):
+        self.__soldier.add_weapon(pistol)
+
+    def add_automatic(self, automatic: Automatic):
+        self.__soldier.add_weapon(automatic)
