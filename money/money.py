@@ -13,7 +13,7 @@ class Money:
 
     def add(self, other):
         if isinstance(other, Money):
-            if self.__currency == other.currency:
+            if self.__currency.currency == other.currency.currency:
                 return Money(self.amount + other.amount, self.__currency, other=1)
         else:
             raise Exception("currency or class money not right")

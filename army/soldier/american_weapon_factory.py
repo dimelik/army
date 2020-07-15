@@ -17,14 +17,14 @@ class AmericanWeaponFactory(WeaponFactory):
         return pistol
 
     def create_knife(self):
-        knife = Knife(Money(200.05, USD), 'Fook')
+        knife = Knife(Money(200, USD), 'Fook')
         knife.armor_piercing = 60
         knife.blade_length = 30
         knife.material = 'steel'
         return knife
 
     def create_sapper(self):
-        sapper = SapperBlade(Money(100.20, USD), 'Blader')
+        sapper = SapperBlade(Money(100, USD), 'Blader')
         sapper.handle_length = 30
         sapper.blade_length = 20
         sapper.material = 'steel'

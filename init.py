@@ -63,7 +63,7 @@ army = Army()
 army.add_soldiers(soldiers)
 army.army_weapon_price()
 
-# print_army(army)
+print_army(army)
 # if id(army2) == id(army):
 #     print('Yes')
 # else:

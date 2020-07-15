@@ -27,6 +27,5 @@ class Army(metaclass=MetaSingleton):
         gen_soldiers = self.get_soldiers()
         result = next(gen_soldiers).get_weapon_price()
         for key in gen_soldiers:
-            print(key.get_weapon_price())
             result = result.add(key.get_weapon_price())
         return result
