@@ -4,15 +4,18 @@ from meta_singleton import MetaSingleton
 
 
 class Army(metaclass=MetaSingleton):
+    __soldiers = []
+    __map = Map(compare_key)
 
-    def __init__(self, *soldier: Soldier):
-        self.__map = Map(compare_key)
+    def add_soldiers(self, *soldier: Soldier):
         for soldier in soldier:
-            if not isinstance(soldier, Soldier):
-                for soldier in soldier:
+            self.__soldiers.append(soldier)
+            for soldier in self.__soldiers:
+                if not isinstance(soldier, Soldier):
+                    for soldier in soldier:
+                        self.__map.add(soldier.get_soldier_key(), soldier)
+                else:
                     self.__map.add(soldier.get_soldier_key(), soldier)
-            else:
-                self.__map.add(soldier.get_soldier_key(), soldier)
 
     def get_soldiers(self):
         return self.__map.get_items()
@@ -24,5 +27,6 @@ class Army(metaclass=MetaSingleton):
         gen_soldiers = self.get_soldiers()
         result = next(gen_soldiers).get_weapon_price()
         for key in gen_soldiers:
+            print(key.get_weapon_price())
             result = result.add(key.get_weapon_price())
         return result

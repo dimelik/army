@@ -56,9 +56,12 @@ class Soldier:
     def get_soldier_key(self):
         return self.__soldier_key.name + self.__soldier_key.military_unit_number
 
+    def add_soldier_key(self, military_unit_number, name):
+        self.__soldier_key = SoldierKey(military_unit_number, name)
+
     @property
     def name(self):
         return self.__soldier_key.name
 
     def clone(self):
-        return copy.copy(self)
+        return copy.deepcopy(self)

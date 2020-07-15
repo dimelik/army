@@ -10,8 +10,6 @@ sys.path.append('weapon/gunshot_weapon/')
 
 from army import Army
 from soldier import Soldier
-from russian_sergeant import RussianSergeant
-from american_sergeant import AmericanSergeant
 from knife import Knife
 from sapper_blade import SapperBlade
 from automatic import Automatic
@@ -20,6 +18,8 @@ from money import Money
 from print_army import *
 from currency import *
 from create_soldier import create_soldier
+from russian_weapon_factory import RussianWeaponFactory
+from american_weapon_factory import AmericanWeaponFactory
 
 automatic = Automatic(Money(2300, USD), 'AK')
 automatic.rate_fire = 30
@@ -54,12 +54,17 @@ soldier2.add_weapon(knife2)
 soldier2.add_weapon(sapper)
 soldier2.add_weapon(automatic)
 
-russian = RussianSergeant(1231, 'rus')
-ressiano = russian.add_weapon_sergeant(sapper, pistol, automatic)
-american = AmericanSergeant(1111, 'usa')
-americano = american.add_weapon_sergeant(knife, pistol, automatic)
+rus = RussianWeaponFactory()
+usa = AmericanWeaponFactory()
 
-soldiers = create_soldier(sapper, automatic, pistol, knife)
-army = Army(ressiano, americano, soldiers)
+soldiers = create_soldier(usa)
 
-print_army(army)
+army = Army()
+army.add_soldiers(soldiers)
+army.army_weapon_price()
+
+# print_army(army)
+# if id(army2) == id(army):
+#     print('Yes')
+# else:
+#     print('NO')

@@ -4,16 +4,31 @@ from random import choice
 from string import ascii_lowercase
 
 
-def create_soldier(sapper, automatic, pistol, knife):
-    builder = SoldierBuilder(9999, 'john')
+# def create_soldier(weapon_factory):
+#     builder = SoldierBuilder(9999, 'john', weapon_factory)
+#     soldiers = []
+#     for i in range(99):
+#         number_mill = random.randint(1000, 400000)
+#         name_soldier = ''.join(choice(ascii_lowercase) for i in range(12))
+#         builder.add_knife()
+#         builder.add_sapper()
+#         builder.add_pistol()
+#         builder.add_automatic()
+#         soldiers.append(builder.soldier)
+#         builder.reset(number_mill, name_soldier)
+#     return soldiers
+
+def create_soldier(weapon_factory):
+    builder = SoldierBuilder(9999, 'john', weapon_factory)
+    builder.add_knife()
+    builder.add_sapper()
+    builder.add_pistol()
+    builder.add_automatic()
     soldiers = []
     for i in range(99):
+        soldier = builder.soldier.clone()
         number_mill = random.randint(1000, 400000)
         name_soldier = ''.join(choice(ascii_lowercase) for i in range(12))
-        builder.add_knife(knife)
-        builder.add_sapper(sapper)
-        builder.add_pistol(pistol)
-        builder.add_automatic(automatic)
-        soldiers.append(builder.soldier)
-        builder.reset(number_mill, name_soldier)
+        soldier.add_soldier_key(number_mill, name_soldier)
+        soldiers.append(soldier)
     return soldiers
