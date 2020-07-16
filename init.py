@@ -54,8 +54,8 @@ soldier2.add_weapon(knife2)
 soldier2.add_weapon(sapper)
 soldier2.add_weapon(automatic)
 
-rus = RussianWeaponFactory()
-usa = AmericanWeaponFactory()
+rus = RussianWeaponFactory(USD)
+usa = AmericanWeaponFactory(USD)
 
 soldiers = create_soldier(usa)
 

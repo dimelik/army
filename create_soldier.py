@@ -4,20 +4,6 @@ from random import choice
 from string import ascii_lowercase
 
 
-# def create_soldier(weapon_factory):
-#     builder = SoldierBuilder(9999, 'john', weapon_factory)
-#     soldiers = []
-#     for i in range(99):
-#         number_mill = random.randint(1000, 400000)
-#         name_soldier = ''.join(choice(ascii_lowercase) for i in range(12))
-#         builder.add_knife()
-#         builder.add_sapper()
-#         builder.add_pistol()
-#         builder.add_automatic()
-#         soldiers.append(builder.soldier)
-#         builder.reset(number_mill, name_soldier)
-#     return soldiers
-
 def create_soldier(weapon_factory):
     builder = SoldierBuilder(9999, 'john', weapon_factory)
     builder.add_knife()
