@@ -20,6 +20,7 @@ from currency import *
 from create_soldier import create_soldier
 from russian_weapon_factory import RussianWeaponFactory
 from american_weapon_factory import AmericanWeaponFactory
+from military_unit import MilitaryUnit
 
 automatic = Automatic(Money(2300, USD), 'AK')
 automatic.rate_fire = 30
@@ -58,12 +59,21 @@ rus = RussianWeaponFactory(USD)
 usa = AmericanWeaponFactory(USD)
 
 soldiers = create_soldier(usa)
-
+soldiers2 = create_soldier(rus)
 army = Army()
-army.add_soldiers(soldiers)
-army.army_weapon_price()
+army.add_soldiers(soldiers2)
 
-print_army(army)
+unit = MilitaryUnit()
+for sold in soldiers:
+    unit.add(sold)
+
+
+unit2 = MilitaryUnit()
+for sold in soldiers2:
+    unit2.add(sold)
+unit.add(unit2)
+print(unit.get_weapon_price().print_amount)
+# print_army(army)
 # if id(army2) == id(army):
 #     print('Yes')
 # else:

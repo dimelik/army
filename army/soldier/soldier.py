@@ -1,6 +1,7 @@
 from bug import Bug
 from soldier_key import SoldierKey
 import copy
+from composite_unit import CompositeUnit
 
 
 def compare_object(arg1, arg2):
@@ -21,13 +22,13 @@ def compare_key(arg1, arg2):
         return 0
 
 
-class Soldier:
+class Soldier(CompositeUnit):
 
     def __init__(self, military_unit_number, name):
         self.__bug = Bug()
         self.__name = name
         self.__military_unit_number = military_unit_number
-        self.__soldier_key = SoldierKey(self.__military_unit_number, self.__name)
+        self.soldier_key = SoldierKey(self.__military_unit_number, self.__name)
 
     def get_weapon_price(self):
         stack_list = []
