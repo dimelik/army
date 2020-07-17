@@ -8,6 +8,7 @@ sys.path.append('data_structure/')
 sys.path.append('weapon/cold_weapon/')
 sys.path.append('weapon/gunshot_weapon/')
 
+from decorator_automatic import DecoratorAutomatic
 from army import Army
 from soldier import Soldier
 from knife import Knife
@@ -73,8 +74,8 @@ for sold in soldiers2:
     unit2.add(sold)
 unit.add(unit2)
 print(unit.get_weapon_price().print_amount)
-# print_army(army)
-# if id(army2) == id(army):
-#     print('Yes')
-# else:
-#     print('NO')
+
+x = DecoratorAutomatic(automatic, 200)
+print(x.shot_volume)
+x.add_muffler()
+print(x.shot_volume)
