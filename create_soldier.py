@@ -5,11 +5,8 @@ from string import ascii_lowercase
 
 
 def create_soldier(weapon_factory):
-    builder = SoldierBuilder(9999, 'john', weapon_factory)
-    builder.add_knife()
-    builder.add_sapper()
-    builder.add_pistol()
-    builder.add_automatic()
+    builder = SoldierBuilder(weapon_factory)
+    builder.create_new_soldier(9999, 'john').add_knife().add_sapper().add_pistol().add_automatic()
     soldiers = []
     for i in range(99):
         soldier = builder.soldier.clone()
