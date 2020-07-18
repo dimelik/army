@@ -9,7 +9,7 @@ sys.path.append('weapon/cold_weapon/')
 sys.path.append('weapon/gunshot_weapon/')
 
 from print_composite_unit import print_composite_unit
-from decorator_automatic import DecoratorAutomatic
+from muffler_automatic import MufflerAutomatic
 from army import Army
 from soldier import Soldier
 from knife import Knife
@@ -74,8 +74,7 @@ for sold in soldiers2:
     unit2.add(sold)
 unit.add(unit2)
 print(unit.get_weapon_price().print_amount)
-print_composite_unit(unit)
-x = automatic.shot_volume = 200
-x = DecoratorAutomatic(automatic)
-x.add_muffler()
-print(automatic.shot_volume)
+# print_composite_unit(unit)
+automatic.shot_volume = 200
+x = MufflerAutomatic(automatic)
+print(x.shot_volume)

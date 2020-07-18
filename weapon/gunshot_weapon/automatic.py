@@ -21,5 +21,3 @@ class Automatic(GunshotWeapon):
     def shot_volume(self, value):
         self.__shot_volume = value
 
-    def add_muffler(self):
-        self.shot_volume = self.shot_volume // 1.3
