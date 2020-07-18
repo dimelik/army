@@ -16,3 +16,7 @@ class CompositeUnit(ABC):
     @abstractmethod
     def get_weapon_price(self):
         pass
+
+    @abstractmethod
+    def name(self):
+        pass

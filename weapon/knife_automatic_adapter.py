@@ -3,20 +3,21 @@ from knife import Knife
 
 
 class KnifeAutomaticAdapter(Knife):
+
     def __init__(self, automatic: Automatic):
         self.__automatic = automatic
 
     @property
     def armor_piercing(self):
-        return self.__automatic.rate_fire
+        return None
 
     @property
     def blade_length(self):
-        return self.__automatic.caliber
+        return None
 
     @property
     def material(self):
-        return self.__automatic.range
+        return None
 
     @property
     def name(self):

@@ -4,8 +4,20 @@ from composite_unit import CompositeUnit
 
 class MilitaryUnit(CompositeUnit):
 
-    def __init__(self):
+    def __init__(self, name):
         self._children: List[CompositeUnit] = []
+        self.__name = name
+
+    def is_composite(self):
+        return True
+
+    @property
+    def units(self):
+        return self._children
+
+    @property
+    def name(self):
+        return self.__name
 
     def add(self, component: CompositeUnit):
         self._children.append(component)
@@ -13,15 +25,11 @@ class MilitaryUnit(CompositeUnit):
     def remove(self, component: CompositeUnit):
         self._children.remove(component)
 
-    def is_composite(self):
-        return True
-
-    def get_weapon_price(self) -> list:
-        array = []
+    def get_weapon_price(self):
+        result = self._children[0].get_weapon_price()
         for child in self._children:
-            array.append(child.get_weapon_price())
-        result = array.pop()
-        for key in array:
-            result = result.add(key)
+            if child is self._children[0]:
+                continue
+            result = result.add(child.get_weapon_price())
         return result
 

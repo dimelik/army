@@ -8,6 +8,7 @@ sys.path.append('data_structure/')
 sys.path.append('weapon/cold_weapon/')
 sys.path.append('weapon/gunshot_weapon/')
 
+from print_composite_unit import print_composite_unit
 from decorator_automatic import DecoratorAutomatic
 from army import Army
 from soldier import Soldier
@@ -64,18 +65,18 @@ soldiers2 = create_soldier(rus)
 army = Army()
 army.add_soldiers(soldiers2)
 
-unit = MilitaryUnit()
+unit = MilitaryUnit('company')
 for sold in soldiers:
     unit.add(sold)
 
 
-unit2 = MilitaryUnit()
+unit2 = MilitaryUnit('company 2')
 for sold in soldiers2:
     unit2.add(sold)
 unit.add(unit2)
 print(unit.get_weapon_price().print_amount)
-
-x = DecoratorAutomatic(automatic, 200)
-print(x.shot_volume)
+print_composite_unit(unit)
+automatic.shot_volume = 200
+x = DecoratorAutomatic(automatic)
 x.add_muffler()
-print(x.shot_volume)
+print(automatic.shot_volume)
