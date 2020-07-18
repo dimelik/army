@@ -1,4 +1,5 @@
 from __future__ import annotations
+import copy
 from abc import ABC, abstractmethod
 
 
@@ -14,7 +15,7 @@ class CompositeUnit(ABC):
 
     @property
     def units(self):
-        return iter(self._children)
+        return copy.copy(self._children)
 
     @abstractmethod
     def get_weapon_price(self):

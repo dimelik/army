@@ -72,9 +72,16 @@ for sold in soldiers:
 unit2 = MilitaryUnit('company 2')
 for sold in soldiers2:
     unit2.add(sold)
-unit.add(unit2)
+
+unit3 = MilitaryUnit('company 3')
+for sold in soldiers2:
+    unit3.add(sold)
+
+unit3.add(unit2)
+unit.add(unit3)
+
 print(unit.get_weapon_price().print_amount)
-# print_composite_unit(unit)
+print_composite_unit(unit)
 automatic.shot_volume = 200
 x = MufflerAutomatic(automatic)
 print(x.shot_volume)
