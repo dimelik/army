@@ -4,14 +4,17 @@ from abc import ABC, abstractmethod
 
 class CompositeUnit(ABC):
 
+    _children = []
+
     def add(self, component: CompositeUnit):
         pass
 
     def remove(self, component: CompositeUnit):
         pass
 
-    def is_composite(self):
-        return False
+    @property
+    def units(self):
+        return iter(self._children)
 
     @abstractmethod
     def get_weapon_price(self):

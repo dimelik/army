@@ -69,14 +69,13 @@ unit = MilitaryUnit('company')
 for sold in soldiers:
     unit.add(sold)
 
-
 unit2 = MilitaryUnit('company 2')
 for sold in soldiers2:
     unit2.add(sold)
 unit.add(unit2)
 print(unit.get_weapon_price().print_amount)
 print_composite_unit(unit)
-automatic.shot_volume = 200
+x = automatic.shot_volume = 200
 x = DecoratorAutomatic(automatic)
 x.add_muffler()
 print(automatic.shot_volume)
