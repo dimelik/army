@@ -1,7 +1,7 @@
 from automatic import Automatic
 
 
-class DecoratorAutomatic:
+class MufflerAutomatic:
 
     def __init__(self, automatic: Automatic):
         self.__automatic = automatic
