@@ -10,5 +10,3 @@ def print_composite_unit(composite_unit: CompositeUnit):
             continue
         else:
             print_composite_unit(unit)
-        # for child_unit in unit.units:
-        #     print(child_unit.name + ' in ' + unit.name)
