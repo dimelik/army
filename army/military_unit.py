@@ -29,5 +29,6 @@ class MilitaryUnit(CompositeUnit):
         result = ZERO
         for child in self._children:
             result = result.add(child.get_weapon_price())
+            print(result)
         return result
 

@@ -1,11 +1,15 @@
 from __future__ import annotations
 import copy
 from abc import ABC, abstractmethod
+from iter import Iter
 
 
 class CompositeUnit(ABC):
 
     _children = []
+
+    def __iter__(self):
+        return Iter(self._children)
 
     def add(self, component: CompositeUnit):
         pass

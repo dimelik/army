@@ -2,6 +2,7 @@ from bug import Bug
 from soldier_key import SoldierKey
 import copy
 from composite_unit import CompositeUnit
+from money import ZERO
 
 
 def compare_object(arg1, arg2):

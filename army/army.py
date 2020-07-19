@@ -1,31 +1,28 @@
-from soldier import *
+from composite_unit import CompositeUnit
+from soldier import compare_key
 from map import Map
 from meta_singleton import MetaSingleton
+from iter import Iter
+from money import ZERO
 
 
 class Army(metaclass=MetaSingleton):
-    __soldiers = []
     __map = Map(compare_key)
 
-    def add_soldiers(self, *soldier: Soldier):
-        for soldier in soldier:
-            self.__soldiers.append(soldier)
-            for soldier in self.__soldiers:
-                if not isinstance(soldier, Soldier):
-                    for soldier in soldier:
-                        self.__map.add(soldier.get_soldier_key(), soldier)
-                else:
-                    self.__map.add(soldier.get_soldier_key(), soldier)
+    def __iter__(self):
+        return Iter(self.__map.get_items())
+
+    def add_soldiers(self, unit: CompositeUnit):
+        self.__map.add(unit.name, unit)
 
     def get_soldiers(self):
         return self.__map.get_items()
 
-    def remove_soldier(self, soldier: Soldier):
-        self.__map.remove(soldier.get_soldier_key())
+    def remove_soldier(self, unit: CompositeUnit):
+        self.__map.remove(unit.name)
 
     def army_weapon_price(self):
-        gen_soldiers = self.get_soldiers()
-        result = next(gen_soldiers).get_weapon_price()
-        for key in gen_soldiers:
+        result = ZERO
+        for key in self:
             result = result.add(key.get_weapon_price())
         return result

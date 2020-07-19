@@ -1,4 +1,5 @@
 from sorted_set import SortedSet
+from iter import Iter
 
 
 class Map:
@@ -7,6 +8,9 @@ class Map:
         self.__items = []
         self.__keys_with_items = []
         self.__sorted_set = SortedSet(compare)
+
+    def __iter__(self):
+        return Iter(self.__items)
 
     def add(self, key, value):
         if key is not None:
@@ -32,7 +36,7 @@ class Map:
             raise Exception('map method get_item must have one parameter(key)')
 
     def get_items(self):
-        for item in self.__items:
+        for item in self:
             yield item
 
     def remove(self, key):

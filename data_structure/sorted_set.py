@@ -1,5 +1,7 @@
 from bubble_sort import bubble_sort
 from binary_search import binary_search
+from iter import Iter
+
 
 class SortedSet:
 
@@ -7,9 +9,12 @@ class SortedSet:
         self.__items = []
         self.__compare = compare
 
+    def __iter__(self):
+        return Iter(self.__items)
+
     @property
     def get_items(self):
-        for items in self.__items:
+        for items in self:
             yield items
 
     def remove(self, value):
