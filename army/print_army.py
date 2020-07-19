@@ -21,7 +21,7 @@ def soldier_print(unit: CompositeUnit):
                 break
 
         for stack_full in stack_list[::-1]:
-            soldier.add_weapon = stack_full
+            soldier.add_weapon(stack_full)
         for weapon in stack_list:
             if weapon.__class__ == Knife:
                 print("Knife: ", end=" ")
@@ -48,6 +48,7 @@ def soldier_print(unit: CompositeUnit):
 
 
 def print_army(army: Army):
-    print("Army weapon price:", army.army_weapon_price().print_amount)
+    arm_price = army.army_weapon_price().print_amount
     for composite_unit in army:
         soldier_print(composite_unit)
+    print("Army weapon price; ", arm_price)

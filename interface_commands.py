@@ -6,12 +6,11 @@ from russian_weapon_factory import RussianWeaponFactory
 from american_weapon_factory import AmericanWeaponFactory
 from company_command import CompanyCommand
 from currency import *
-from print_composite_unit import print_composite_unit
 from army_command import ArmyCommand
+from soldier_killer import SoldierKiller
 
 
 def interface_commands():
-    soldiers = None
     rus = RussianWeaponFactory(USD)
     usa = AmericanWeaponFactory(USD)
     print("""
@@ -37,7 +36,20 @@ def interface_commands():
         if army_factor == '2':
             company = CompanyCommand(unit, rus, amount)
         invoke.set_on_start(company)
-        invoke.do_something()
-        invoke.set_on_start(ArmyCommand(army, unit))
+        invoke.set_on_finish(ArmyCommand(army, unit))
         invoke.do_something()
     print_army(army)
+
+    while True:
+        print('if you want to kill a soldier, enter the soldier\'s name or enter 1 to continue')
+        name = input()
+        if name == "1":
+            break
+        print(army.get_soldier(name))
+        killer = SoldierKiller()
+        killer.attach(army)
+        soldier = army.get_soldier(name)
+        soldier.kill()
+    killer.notify()
+    print_army(army)
+

@@ -15,8 +15,8 @@ class SoldierBuilder:
         soldier = self.__soldier
         return soldier
 
-    def create_new_soldier(self, military_unit_number: int, name: str):
-        self.__soldier = Soldier(military_unit_number, name)
+    def create_new_soldier(self, military_unit_number: int, name: str, strategy):
+        self.__soldier = Soldier(military_unit_number, name, strategy)
         return self
 
     def add_knife(self):

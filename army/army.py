@@ -18,6 +18,18 @@ class Army(metaclass=MetaSingleton):
     def get_soldiers(self):
         return self.__map.get_items()
 
+    def get_soldier(self, name):
+        for companies in self:
+            for unit in companies:
+                if unit.name == name:
+                    return unit
+
+    def update(self):
+        for companies in self:
+            for unit in companies:
+                if unit.is_die == 1:
+                    return companies.remove(unit)
+
     def remove_soldier(self, unit: CompositeUnit):
         self.__map.remove(unit.name)
 

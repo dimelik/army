@@ -2,7 +2,8 @@ from bug import Bug
 from soldier_key import SoldierKey
 import copy
 from composite_unit import CompositeUnit
-from money import ZERO
+from certain_kill_strategy import CertainKillStrategy
+from kill_by_covid_strategy import KillByCovidStrategy
 
 
 def compare_object(arg1, arg2):
@@ -25,11 +26,34 @@ def compare_key(arg1, arg2):
 
 class Soldier(CompositeUnit):
 
-    def __init__(self, military_unit_number, name):
+    __age = None
+
+    def __init__(self, military_unit_number, name, strategy):
+        self.__strategy = strategy
+        self.__kill = 0
         self.__bug = Bug()
         self.__name = name
         self.__military_unit_number = military_unit_number
         self.soldier_key = SoldierKey(self.__military_unit_number, self.__name)
+
+    @property
+    def is_die(self):
+        return self.__kill
+
+    def kill(self):
+        if isinstance(self.__strategy, CertainKillStrategy):
+            self.__kill = self.__strategy.kill()
+        if isinstance(self.__strategy, KillByCovidStrategy):
+            if self.__age > 60:
+                self.__kill = self.__strategy.kill()
+
+    @property
+    def age(self):
+        return self.__age
+
+    @age.setter
+    def age(self, value):
+        self.__age = value
 
     def get_weapon_price(self):
         stack_list = []
