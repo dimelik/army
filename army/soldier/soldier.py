@@ -34,7 +34,7 @@ class Soldier(CompositeUnit):
         self.__bug = Bug()
         self.__name = name
         self.__military_unit_number = military_unit_number
-        self.soldier_key = SoldierKey(self.__military_unit_number, self.__name)
+        self.__soldier_key = SoldierKey(self.__military_unit_number, self.__name)
 
     @property
     def is_die(self):
