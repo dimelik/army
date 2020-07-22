@@ -9,7 +9,7 @@ def create_soldier(weapon_factory, amount):
     strategy = CertainKillStrategy()
     amount = int(amount)
     builder = SoldierBuilder(weapon_factory)
-    builder.create_new_soldier(9999, 'john', strategy).add_knife().add_sapper().add_pistol().add_automatic()
+    builder.create_new_soldier(9999, 'john'). add_strategy_kill(strategy).add_knife().add_sapper().add_pistol().add_automatic()
     soldiers = []
     for i in range(amount):
         soldier = builder.soldier.clone()

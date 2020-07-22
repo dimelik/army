@@ -2,8 +2,6 @@ from bug import Bug
 from soldier_key import SoldierKey
 import copy
 from composite_unit import CompositeUnit
-from certain_kill_strategy import CertainKillStrategy
-from kill_by_covid_strategy import KillByCovidStrategy
 
 
 def compare_object(arg1, arg2):
@@ -27,24 +25,27 @@ def compare_key(arg1, arg2):
 class Soldier(CompositeUnit):
 
     __age = None
-    __kill = False
+    __strategy = None
+    __is_died = False
 
-    def __init__(self, military_unit_number, name, strategy):
+    def __init__(self, military_unit_number, name):
         self.__bug = Bug()
         self.__name = name
         self.__military_unit_number = military_unit_number
         self.__soldier_key = SoldierKey(self.__military_unit_number, self.__name)
 
+    def set_strategy_kill(self, strategy):
+        self.__strategy = strategy
+
     @property
-    def is_die(self):
-        return self.__kill
+    def is_died(self):
+        return self.__is_died
 
     def kill(self):
-        if isinstance(self.__strategy, CertainKillStrategy):
-            self.__kill = self.__strategy.kill()
-        if isinstance(self.__strategy, KillByCovidStrategy):
-            if self.__age > 60:
-                self.__kill = self.__strategy.kill()
+        if self.__strategy is not None:
+            self.__is_died = self.__strategy.kill(self.__age)
+        else:
+            raise Exception('Please choice strategy for kill in set_strategy_kill method')
 
     @property
     def age(self):

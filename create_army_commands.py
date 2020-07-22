@@ -38,16 +38,16 @@ def create_army_commands(army):
             if army_factor == '2':
                 company = AddSoldierToCompanyCommand(unit, rus, amount).execute()
             AddUnitToArmyCommand(army, company).execute()
-        return army
-        # while True:
-        #     print('if you want to kill a soldier, enter the soldier\'s name or enter 1 to continue')
-        #     name = input()
-        #     if name == "1":
-        #         break
-        #     killer = SoldierKiller()
-        #     killer.attach(army)
-        #     soldier = army.get_unit(name)
-        #     soldier.kill()
-        # killer.notify()
-        # print_army(army)
+        print_army(army)
+        while True:
+            print('if you want to kill a soldier, enter the soldier\'s name or enter 1 to continue')
+            name = input()
+            if name == "1":
+                break
+            killer = SoldierKiller()
+            killer.attach(army)
+            soldier = army.get_unit(name)
+            soldier.kill()
+        killer.notify()
+        print_army(army)
 
