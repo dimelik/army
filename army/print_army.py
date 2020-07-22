@@ -46,7 +46,7 @@ def unit_print(unit: CompositeUnit):
             else:
                 raise Exception("Your unit die now")
     else:
-        print('Company name: ' + unit.name)
+        print('    COMPANY: ' + unit.name + ' END')
 
 
 def print_army(army: Army):
@@ -58,6 +58,8 @@ def print_army(army: Army):
 
 
 def company_iter(unit):
-    for unit in unit:
-        unit_print(unit)
-        company_iter(unit)
+    for units in unit:
+        print('    its soldier\'s in ' + unit.name + ' company')
+        unit_print(units)
+        company_iter(units)
+

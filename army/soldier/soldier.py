@@ -27,10 +27,9 @@ def compare_key(arg1, arg2):
 class Soldier(CompositeUnit):
 
     __age = None
+    __kill = False
 
     def __init__(self, military_unit_number, name, strategy):
-        self.__strategy = strategy
-        self.__kill = 0
         self.__bug = Bug()
         self.__name = name
         self.__military_unit_number = military_unit_number

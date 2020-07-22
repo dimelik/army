@@ -1,4 +1,4 @@
 class CertainKillStrategy:
 
     def kill(self):
-        return 1
+        return True

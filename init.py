@@ -9,6 +9,8 @@ sys.path.append('data_structure/')
 sys.path.append('weapon/cold_weapon/')
 sys.path.append('weapon/gunshot_weapon/')
 
+from commands.remove_soldier_from_company import RemoveSoldierFromCompany
+from commands.remove_unit_from_army import RemoveUnitFromArmyCommand
 from military_unit import MilitaryUnit
 from commands.add_unit_to_army_command import AddUnitToArmyCommand
 from create_soldier_add_army import create_soldier_add_army
@@ -25,6 +27,8 @@ while True:
                                   3 - create company
                                   4 - add soldier to company
                                   5 - add  company in army
+                                  6 - remove soldier from company
+                                  7 - remove unit from army
                                   0 - exit
             """)
     menu_input = input()
@@ -48,4 +52,18 @@ while True:
         company_iter(company)
     if menu_input == '5':
         AddUnitToArmyCommand(army, company).execute()
+        print_army(army)
+    if menu_input == '6':
+        print('input soldier name')
+        name = input()
+        soldier = company.get_soldier(name)
+        RemoveSoldierFromCompany(company, soldier).execute()
+        print('remove success')
+        company_iter(company)
+    if menu_input == '7':
+        print('input unit name')
+        name = input()
+        unit = army.get_unit(name)
+        RemoveUnitFromArmyCommand(army, unit).execute()
+        print('remove success')
         print_army(army)

@@ -38,9 +38,7 @@ class Army(metaclass=MetaSingleton):
                     return companies.remove(unit)
 
     def remove_unit(self, unit: CompositeUnit):
-        for units in self:
-            self.remove_unit(unit)
-            self.__map.remove(units.name)
+        self.__map.remove(unit.name)
 
     def army_weapon_price(self):
         result = ZERO

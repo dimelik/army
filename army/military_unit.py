@@ -30,3 +30,8 @@ class MilitaryUnit(CompositeUnit):
         for child in self._children:
             result = result.add(child.get_weapon_price())
         return result
+
+    def get_soldier(self, name):
+        for soldier in self._children:
+            if soldier.name == name:
+                return soldier
