@@ -29,10 +29,13 @@ while True:
                                   5 - add  company in army
                                   6 - remove soldier from company
                                   7 - remove unit from army
+                                  8 - kill soldier
                                   0 - exit
             """)
     menu_input = input()
     army = Army()
+    if menu_input == '0':
+        break
     if menu_input == '1':
         create_army_commands(army)
         print_army(army)
@@ -66,4 +69,11 @@ while True:
         unit = army.get_unit(name)
         RemoveUnitFromArmyCommand(army, unit).execute()
         print('remove success')
+        print_army(army)
+    if menu_input == '8':
+        print('input unit name')
+        name = input()
+        unit = army.get_unit(name)
+        unit.kill()
+        print('kill success')
         print_army(army)

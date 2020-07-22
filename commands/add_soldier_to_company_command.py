@@ -12,5 +12,6 @@ class AddSoldierToCompanyCommand(Command):
 
     def execute(self):
         for unit in self._unit:
+            unit.attach(self._company)
             self._company.add(unit)
         return self._company

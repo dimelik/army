@@ -3,8 +3,6 @@ from military_unit import MilitaryUnit
 from russian_weapon_factory import RussianWeaponFactory
 from american_weapon_factory import AmericanWeaponFactory
 from currency import *
-
-from soldier_killer import SoldierKiller
 from commands.add_soldier_to_company_command import AddSoldierToCompanyCommand
 from commands.add_unit_to_army_command import AddUnitToArmyCommand
 
@@ -39,15 +37,15 @@ def create_army_commands(army):
                 company = AddSoldierToCompanyCommand(unit, rus, amount).execute()
             AddUnitToArmyCommand(army, company).execute()
         print_army(army)
-        while True:
-            print('if you want to kill a soldier, enter the soldier\'s name or enter 1 to continue')
-            name = input()
-            if name == "1":
-                break
-            killer = SoldierKiller()
-            killer.attach(army)
-            soldier = army.get_unit(name)
-            soldier.kill()
-        killer.notify()
-        print_army(army)
+        # while True:
+        #     print('if you want to kill a soldier, enter the soldier\'s name or enter 1 to continue')
+        #     name = input()
+        #     if name == "1":
+        #         break
+        #     killer = SoldierKiller()
+        #     killer.attach(army)
+        #     soldier = army.get_unit(name)
+        #     soldier.kill()
+        # killer.notify()
+        return army
 

@@ -4,6 +4,7 @@ from map import Map
 from meta_singleton import MetaSingleton
 from iter import Iter
 from money import ZERO
+from observer_soldier import ObserverSoldier
 
 
 def find_unit_in_companies(unit, name):
@@ -13,13 +14,20 @@ def find_unit_in_companies(unit, name):
             return unit
 
 
-class Army(metaclass=MetaSingleton):
+class Army(ObserverSoldier):
+    _instances = {}
+
+    def __call__(self, *args, **kwargs):
+        if self not in self._instances:
+            self._instances[self] = super(MetaSingleton, self).__call__(*args, **kwargs)
+        return self._instances[self]
+
     __map = Map(compare_key)
 
     def __iter__(self):
         return Iter(self.__map.get_items())
 
-    def add_unit(self, unit: CompositeUnit):
+    def add(self, unit: CompositeUnit):
         self.__map.add(unit.name, unit)
 
     def get_units(self):
@@ -31,13 +39,7 @@ class Army(metaclass=MetaSingleton):
                 return unit
             return find_unit_in_companies(unit, name)
 
-    def update(self):
-        for companies in self:
-            for unit in companies:
-                if unit.is_died is True:
-                    return companies.remove(unit)
-
-    def remove_unit(self, unit: CompositeUnit):
+    def remove(self, unit: CompositeUnit):
         self.__map.remove(unit.name)
 
     def army_weapon_price(self):

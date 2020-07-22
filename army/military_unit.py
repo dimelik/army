@@ -1,17 +1,26 @@
 from typing import List
 from composite_unit import CompositeUnit
 from money import ZERO
+from iter import Iter
+from observer_soldier import ObserverSoldier
 
 
-class MilitaryUnit(CompositeUnit):
+class MilitaryUnit(CompositeUnit, ObserverSoldier):
 
     def __init__(self, name):
         self._children: List[CompositeUnit] = []
         self.__name = name
 
+    def __iter__(self):
+        return Iter(self._children)
+
     @property
     def name(self):
         return self.__name
+
+    @property
+    def is_dead(self):
+        return False
 
     def add(self, component: CompositeUnit):
         if isinstance(component, CompositeUnit):
