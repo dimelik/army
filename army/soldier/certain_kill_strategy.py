@@ -1,4 +1,4 @@
 class CertainKillStrategy:
 
-    def kill(self, age):
+    def kill(self, soldier):
         return True

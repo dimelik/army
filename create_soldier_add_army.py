@@ -1,7 +1,6 @@
 from american_weapon_factory import AmericanWeaponFactory
 from certain_kill_strategy import CertainKillStrategy
 from russian_weapon_factory import RussianWeaponFactory
-from soldier_builder import SoldierBuilder
 from currency import *
 from commands.create_soldier_command import CreateSoldierCommand
 

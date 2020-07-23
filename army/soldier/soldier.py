@@ -2,7 +2,7 @@ from bug import Bug
 from soldier_key import SoldierKey
 import copy
 from composite_unit import CompositeUnit
-from observable_soldier_kill import ObservableSoldierKill
+from observable import Observable
 
 
 def compare_object(arg1, arg2):
@@ -23,7 +23,7 @@ def compare_key(arg1, arg2):
         return 0
 
 
-class Soldier(CompositeUnit, ObservableSoldierKill):
+class Soldier(CompositeUnit, Observable):
 
     __age = None
     __strategy = None
@@ -40,10 +40,10 @@ class Soldier(CompositeUnit, ObservableSoldierKill):
 
     def kill(self):
         if self.__strategy is not None:
-            self.__is_dead = self.__strategy.kill(self.__age)
+            self.__is_dead = self.__strategy.kill(self)
         else:
             raise Exception('Please choice strategy for kill in set_strategy_kill method')
-        ObservableSoldierKill.notify(self)
+        Observable.notify(self, 'kill')
 
     @property
     def is_dead(self):

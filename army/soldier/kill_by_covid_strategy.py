@@ -1,10 +1,9 @@
 import random
 
-
 class KillByCovidStrategy:
 
-    def kill(self, age):
-        if age <= 60:
+    def kill(self, soldier):
+        if soldier.age <= 60:
             return False
         else:
             x = random.randint(1, 100)

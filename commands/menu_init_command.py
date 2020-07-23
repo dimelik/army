@@ -11,6 +11,7 @@ from army import Army
 
 class MenuInitCommand:
     def execute(self):
+        company = None
         while True:
             print("""
                     Hello, please choice: 1 - create army with companies

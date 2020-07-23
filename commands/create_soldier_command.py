@@ -10,7 +10,7 @@ class CreateSoldierCommand:
 
     def execute(self):
         builder = SoldierBuilder(self._weapon_factory)
-        builder.create_new_soldier(self._mill_number, self._name,
-                                   self._strategy).add_knife().add_sapper().add_pistol().add_automatic()
+        builder.create_new_soldier(self._mill_number, self._name, ).add_strategy_kill(
+            self._strategy).add_knife().add_sapper().add_pistol().add_automatic()
         soldier = builder.soldier
         return soldier
