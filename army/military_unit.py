@@ -11,9 +11,6 @@ class MilitaryUnit(CompositeUnit, ObserverSoldier):
         self._children: List[CompositeUnit] = []
         self.__name = name
 
-    def __iter__(self):
-        return Iter(self._children)
-
     @property
     def name(self):
         return self.__name
